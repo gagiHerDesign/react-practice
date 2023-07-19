@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0421doc</title>
+    <style>
+      .box {
+        font-size: 50px;
+        /* border: 1px solid sandybrown; */
+      }
+
+      html {
+        font-family: sans-serif;
+      }
+
+      span,
+      div em {
+        padding: 5px;
+        border: 1px solid green;
+        display: inline-block;
+        margin-bottom: 3px;
+      }
+
+      .first span:nth-child(2n+1),
+      .second span:nth-child(2n+1),
+      .third span:nth-of-type(2n+1) {
+        background-color: lime;
+      }
+
+      .box {
+        background: linear-gradient(105deg, rgba(255, 255, 255, .2) 39%, rgba(51, 56, 57, 1) 96%) center center / 400px 10px no-repeat,
+          url('https://img.freepik.com/free-vector/flat-sparkling-star-collection_23-2149014890.jpg?w=2000') center no-repeat, rebeccapurple;
+      }
+
+
+
+      .box2 {
+        inline-size: 200px;
+        writing-mode: vertical-rl;
+      }
+
+      .box2 img {
+        float: inline-end;
+        margin-inline-start: 10px;
+        margin-block-end: 100px;
+      }
+
+      .box3 {
+        width: 200px;
+        border: 5px solid saddlebrown;
+        margin: 1rem;
+      }
+
+      .minibox {
+        width: 500px;
+        border: 1px solid saddlebrown;
+      }
+
+      .width {
+        width: 100%;
+      }
+
+      .max {
+        /* width: 100%; */
+        max-width: 100%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="box">Change my margin.</div>
+    </div>
+    <!--  -->
+    <h3><code>span:nth-child(2n+1)</code>, WITHOUT an
+      <code>&lt;em&gt;</code> among the child elements.
+    </h3>
+    <p>Children 1, 3, 5, and 7 are selected.</p>
+    <div class="first">
+      <span>Span 1!</span>
+      <span>Span 2</span>
+      <span>Span 3!</span>
+      <span>Span 4</span>
+      <span>Span 5!</span>
+      <span>Span 6</span>
+      <span>Span 7!</span>
+    </div>
+
+    <br>
+
+    <h3><code>span:nth-child(2n+1)</code>, WITH an
+      <code>&lt;em&gt;</code> among the child elements.
+    </h3>
+    <p>Children 1, 5, and 7 are selected.<br>
+      3 is used in the counting because it is a child, but it isn't
+      selected because it isn't a <code>&lt;span&gt;</code>.</p>
+    <div class="second">
+      <span>Span!</span>
+      <span>Span</span>
+      <em>This is an `em`.</em>
+      <span>Span</span>
+      <span>Span!</span>
+      <span>Span</span>
+      <span>Span!</span>
+      <span>Span</span>
+    </div>
+
+    <br>
+
+    <h3><code>span:nth-of-type(2n+1)</code>, WITH an
+      <code>&lt;em&gt;</code> among the child elements.
+    </h3>
+    <p>Children 1, 4, 6, and 8 are selected.<br>
+      3 isn't used in the counting or selected because it is an <code>&lt;em&gt;</code>,
+      not a <code>&lt;span&gt;</code>, and <code>nth-of-type</code> only selects
+      children of that type. The <code>&lt;em&gt;</code> is completely skipped
+      over and ignored.</p>
+    <div class="third">
+      <span>Span!</span>
+      <span>Span</span>
+      <em>This is an `em`.</em>
+      <span>Span!</span>
+      <span>Span</span>
+      <span>Span!</span>
+      <span>Span</span>
+      <span>Span!</span>
+    </div>
+
+    <!-- nth-of-type，意旨同個元素都會被選到，如果中間有參雜別的元素也不會影響 -->
+    <div>
+      <div>This element isn't counted.</div>
+      <p>1st paragraph.</p>
+      <p class="fancy">2nd paragraph.</p>
+      <div>This element isn't counted.</div>
+      <p class="fancy">3rd paragraph.</p>
+      <p>4th paragraph.</p>
+    </div>
+
+    <div class="box">123</div>
+
+    <div class="wrapper">
+      <div class="box2 logical">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQenWLU4SKA7OocH5Hl6GNcGjK86W7FSVOcCQ&usqp=CAU"
+          alt="star">
+        <p>This box uses logical properties. The star image has been floated inline-start, it also has a margin on the
+          inline-end and block-end.</p>
+      </div>
+    </div>
+    <div class="container">
+      <div class="box3"><img class="width"
+          src="https://i.pinimg.com/564x/04/81/d7/0481d76834fe4da769a69d3e2b8dc2cb.jpg">
+      </div>
+      <div class="box3" style="width: 400px;"><img class="max"
+          src="https://i.pinimg.com/564x/04/81/d7/0481d76834fe4da769a69d3e2b8dc2cb.jpg">
+      </div>
+      <div class="minibox"><img class="max"
+          src="https://i.pinimg.com/564x/04/81/d7/0481d76834fe4da769a69d3e2b8dc2cb.jpg">
+      </div>
+    </div>
+
+  </body>
+
+</html>

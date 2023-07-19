@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      // 使用 prototype 定义 
+      function Person(name, age) {
+        this.name = name;
+        this.age = age;
+      }
+
+      Person.prototype.sayHello = function () {
+        console.log(`Hello, my name is ${ this.name } and I am ${ this.age } years old.`);
+      }
+
+      let john = new Person("John", 30);
+      john.sayHello(); // 输出：Hello, my name is John and I am 30 years old.
+
+      // 使用 class 定义 
+      class Man {
+        constructor(name, age) {
+          this.name = name;
+          this.age = age;
+        }
+
+        sayHello() {
+          console.log(`Hello, my name is ${ this.name } and I am ${ this.age } years old.`);
+        }
+      }
+
+      let Amy = new Man("Amy", 30);
+      Amy.sayHello(); // 输出：Hello, my name is Amy and I am 30 years old.
+
+
+    </script>
+  </body>
+
+</html>

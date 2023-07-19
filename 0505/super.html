@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+
+      class Person {
+        constructor(age, weight) {
+          this.age = age;
+          this.weight = weight;
+        }
+        call_this() {
+          return this;
+        }
+        static SonCanNotUse() {
+          console.log("爸爸專用");
+        }
+      }
+
+      class SuperMan extends Person {
+        constructor(age, weight, power) {
+          // 如果在super()之前就呼叫this 的話，會reference error
+          super(age, weight);
+          this.power = power;
+        }
+        hello() {
+          console.log(`我是個有${ this.power }戰鬥力的SuperMAN`);
+        }
+      }
+
+      const Teacher = new SuperMan(30, 100, 1000);
+      console.log(Teacher)
+      Teacher.hello();
+    </script>
+  </body>
+
+</html>

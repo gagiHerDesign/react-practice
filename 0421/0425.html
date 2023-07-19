@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0425</title>
+    <style>
+      h3 {
+        font-weight: normal;
+        color: blue;
+      }
+
+      ol {
+        position: relative;
+        color: rgb(228, 86, 86);
+        width: 500px;
+        font-size: 50px;
+        margin: 30px auto;
+        list-style-type: none;
+      }
+
+      .content0 {
+        list-style-type: unset;
+      }
+
+      .content {
+        list-style-type: revert;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- none -->
+    <ol>
+      <li>456456456</li>
+      <li>456456456</li>
+      <li>456456456</li>
+      <li>456456456</li>
+    </ol>
+    <!-- 初始的<li> -->
+    <li>456456456</li>
+    <!-- unset -->
+    <div class="test2">
+      <ol class="content0">
+        <li>test</li>
+        <li>test</li>
+        <li>test</li>
+        <li>test</li>
+      </ol>
+    </div>
+    <!-- revert -->
+    <div class="test2">
+      <ol class="content">
+        <li>test</li>
+        <li>test</li>
+        <li>test</li>
+        <li>test</li>
+      </ol>
+    </div>
+  </body>
+
+</html>

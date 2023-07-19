@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>comparison</title>
+  </head>
+
+  <body>
+    <script>
+      // 1. 使用callback
+      login('username', 'password', (res) => {
+        if (res.result === 0) {
+          getPosts(res.uid, (posts) => {
+            if (posts && posts.length) {
+              console.log('你的文章有 ' + posts.length + ' 篇');
+            } else {
+              console.log('沒有文章');
+            }
+          });
+        } else {
+          console.log('登入失敗');
+        }
+      });
+
+      // 2. 使用promise
+      login('username', 'password')
+        .then((res) => {
+          if (res.result === 0) {
+            return getPosts(res.uid);
+          } else {
+            console.log('登入失敗');
+          }
+        })
+        .then((posts) => {
+          if (posts && posts.length) {
+            console.log('你的文章有 ' + posts.length + ' 篇');
+          } else {
+            console.log('沒有文章');
+          }
+        });
+
+      // 3. 使用async/await
+      async function showPosts() {
+        const res = await login('username', 'password');
+        if (res.result === 0) {
+          const posts = await getPosts(res.uid);
+          if (posts && posts.length) {
+            console.log('你的文章有 ' + posts.length + ' 篇');
+          } else {
+            console.log('沒有文章');
+          }
+        } else {
+          console.log('登入失敗');
+        }
+      }
+
+      // 4. 使用async/await + try/catch
+      async function showPosts() {
+        try {
+          const res = await login('username', 'password');
+          const posts = await getPosts(res.uid);
+          if (posts && posts.length) {
+            console.log('你的文章有 ' + posts.length + ' 篇');
+          } else {
+            console.log('沒有文章');
+          }
+        } catch (err) {
+          console.log('登入失敗:' + err);
+        }
+      }
+
+
+      // // 1. 使用callback
+      // chooseToppings(function (toppings) {
+      //   placeOrder(toppings, function (order) {
+      //     collectOrder(order, function (pizza) {
+      //       eatPizza(pizza);
+      //     }, failureCallback);
+      //   }, failureCallback);
+      // }, failureCallback);
+
+      // // 2. 使用promise
+      // chooseToppings()
+      //   .then((toppings) => placeOrder(toppings))
+      //   .then((order) => collectOrder(order))
+      //   .then((pizza) => eatPizza(pizza))
+      //   .catch(failureCallback);
+
+      // // 3. 使用async/await
+      // async function makePizza() {
+      //   const toppings = await chooseToppings();
+      //   const order = await placeOrder(toppings);
+      //   const pizza = await collectOrder(order);
+      //   eatPizza(pizza);
+      // }
+
+      // 4. 使用async/await + try/catch
+      // async function makePizza() {
+      //   try {
+      //     const toppings = await chooseToppings();
+      //     const order = await placeOrder(toppings);
+      //     const pizza = await collectOrder(order);
+      //     eatPizza(pizza);
+      //   } catch (err) {
+      //     failureCallback(err);
+      //   }
+      // }
+
+
+
+      // 1. 建立一個有promise的函式
+      function promiseFn(num) {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            if (num) {
+              resolve('success');
+            } else {
+              reject(new Error('fail'));
+            }
+          }, 1000);
+        });
+      }
+
+      // // 1.05 使用callback
+      // promiseFn(1, (result) => {
+      //   console.log(result);
+      //   promiseFn(1, (result) => {
+      //     console.log(result);
+      //     promiseFn(2, (result) => {
+      //       console.log(result);
+      //     }, (err) => {
+      //       console.log(err);
+      //     });
+      //   }, (err) => {
+      //     console.log(err);
+      //   });
+      // }, (err) => {
+      //   console.log(err);
+      // });
+
+      // // 2. 使用promise
+      // promiseFn(1)
+      //   .then((result) => {
+      //     console.log(result);
+      //     return promiseFn(1);
+      //   })
+      //   .then((result) => {
+      //     console.log(result);
+      //     return promiseFn(2);
+      //   })
+      //   .catch((err) => {
+      //     console.log(err);
+      //   });
+
+      // // 3. 使用async/await
+      // async function asyncFn() {
+      //   console.log(1)
+      //   const res = await promiseFn(1);
+      //   console.log(2, res)
+      //   const res2 = await promiseFn(1);
+      //   console.log(3, res2)
+      // }
+      // asyncFn();
+
+      // // 4. 使用async/await + try/catch (錯誤處理)
+      // // 立即函式
+      // (async () => {
+      //   try {
+      //     const res = await promiseFn(0);
+      //     console.log(res);
+      //   } catch (err) {
+      //     console.log('錯誤訊息:' + err);
+      //   }
+      // })();
+
+
+      const asyncFn = async (num) => {
+        try {
+          const res = await promiseFn(num);
+          return res
+        } catch (err) {
+          throw new Error('錯誤訊息:' + err);
+        }
+      };
+
+      asyncFn(0)
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log('錯誤訊息:' + err);
+        })
+    </script>
+  </body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>loading_coffee</title>
+  </head>
+
+  <body>
+    <button>111</button>
+    <script>
+      console.log('start');
+      function loadAsset(url, type, callback) {
+        let xhr = new XMLHttpRequest();
+        xhr.open('GET', url);
+        xhr.responseType = type;
+
+        console.log('嗨，我是onload前');
+
+        xhr.onload = function () {
+          console.log("圖片加載完成")
+          callback(xhr.response);
+        };
+
+        console.log('嗨，我是onload後');
+
+        // 函數調用了 send 方法，開始發送 HTTP 請求
+        xhr.send();
+      }
+
+      function displayImage(blob) {
+        let objectURL = URL.createObjectURL(blob);
+
+        let image = document.createElement('img');
+        image.src = objectURL;
+        document.body.appendChild(image);
+      }
+
+      console.log('continue');
+      loadAsset('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKbdvYkgwvUoz9ZUX_017uOiNSVInViNuGTg&usqp=CAU', 'blob', displayImage);
+      console.log('end');
+
+
+
+
+      const btn = document.querySelector('button');
+
+      // btn.addEventListener('click', () => {
+      //   alert('你點擊了我！');
+
+      //   let pElem = document.createElement('p');
+      //   pElem.textContent = '這是一段新加的文字。';
+      //   document.body.appendChild(pElem);
+      // });
+
+
+      btn.addEventListener('click', () => {
+        alert('你點擊了我！');
+
+        let pElem = document.createElement('p');
+        pElem.textContent = '這是一段新加的文字。';
+        document.body.appendChild(pElem);
+      });
+
+    </script>
+  </body>
+
+</html>

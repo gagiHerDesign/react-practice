@@ -1,0 +1,17 @@
+.container {
+  padding: 2rem;
+  background-color: antiquewhite;
+}
+
+.list {
+  width: 50%;
+  background-color: rgb(255, 255, 255);
+  margin: 2rem 0 0 2rem;
+  padding: 1rem;
+  font-size: 12px;
+}
+
+.link {
+  color: darkolivegreen;
+
+}

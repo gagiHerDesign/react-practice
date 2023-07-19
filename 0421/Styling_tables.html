@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      /* spacing */
+
+      table {
+        table-layout: fixed;
+        width: 100%;
+        border-collapse: collapse;
+        border: 3px solid purple;
+      }
+
+      thead th:nth-child(1) {
+        width: 30%;
+      }
+
+      thead th:nth-child(2) {
+        width: 20%;
+      }
+
+      thead th:nth-child(3) {
+        width: 15%;
+      }
+
+      thead th:nth-child(4) {
+        width: 35%;
+      }
+
+      th,
+      td {
+        padding: 20px;
+      }
+
+      ul {
+        /* line-height: 1.5; */
+        padding-left: 2rem;
+        /* list-style-image: ('https://img.lovepik.com/element/40121/7816.png_860.png'); */
+        list-style-type: none;
+      }
+
+      /* ul li {
+        padding-left: 2rem;
+        background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPdc9qAxeOwCzJVXG0wgWCl2YtjUNgyAyryQ&usqp=CAU');
+        background-position: 0 0;
+        background-size: 1.6rem 1.6rem;
+        background-repeat: no-repeat;
+      } */
+      ul {
+        list-style: square url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPdc9qAxeOwCzJVXG0wgWCl2YtjUNgyAyryQ&usqp=CAU') disc;
+      }
+    </style>
+  </head>
+
+  <body>
+    <table>
+      <caption>
+        A summary of the UK's most famous punk bands
+      </caption>
+      <thead>
+        <tr>
+          <th scope="col">Band</th>
+          <th scope="col">Year formed</th>
+          <th scope="col">No. of Albums</th>
+          <th scope="col">Most famous song</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Buzzcocks</th>
+          <td>1976</td>
+          <td>9</td>
+          <td>Ever fallen in love (with someone you shouldn't've)</td>
+        </tr>
+        <tr>
+          <th scope="row">The Clash</th>
+          <td>1976</td>
+          <td>6</td>
+          <td>London Calling</td>
+        </tr>
+
+        <!-- several other great bands -->
+
+        <tr>
+          <th scope="row">The Stranglers</th>
+          <td>1974</td>
+          <td>17</td>
+          <td>No More Heroes</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th scope="row" colspan="2">Total albums</th>
+          <td colspan="2">77</td>
+        </tr>
+      </tfoot>
+    </table>
+
+    <ul>
+      <li>First, light the candle.</li>
+      <li>Next, open the box.</li>
+      <li>Finally, place the three magic items in the box, in this exact order, to complete the spell:
+        <ol start="4" reversed>
+          <li>The book of spells</li>
+          <li>The shiny rod</li>
+          <li>The goblin statue</li>
+        </ol>
+      </li>
+    </ul>
+
+
+  </body>
+
+</html>

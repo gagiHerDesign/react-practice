@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./styles/style.css">
+  </head>
+
+  <body>
+    <h1>Mozilla so cool</h1>
+    <img src="./images/cat.jpg" alt="cat">
+    <p>At Mozilla, we’re a global community of</p>
+
+    <ul>
+      <li>technologists</li>
+      <li>thinkers</li>
+      <li>builders</li>
+    </ul>
+
+    <p>working together Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias veniam cum dolores saepe,
+      expedita eos architecto itaque explicabo! Adipisci, praesentium labore illum quisquam reiciendis sunt minus at
+      nesciunt dolore deleniti.</p>
+    <p>
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias, debitis?<a
+        href="https://www.mozilla.org/zh-TW/about/manifesto/">Mozilla Manifesto</a>Lorem ipsum dolor, sit amet
+      consectetur adipisicing elit. Quas voluptatem tempore perspiciatis ducimus, libero necessitatibus natus sequi
+      temporibus voluptatum molestias.
+    </p>
+
+    <button>Change user</button>
+
+    <a href="https://www.mozilla.org/en-US/">
+      <img src="https://pbs.twimg.com/profile_images/1366808543773384704/8qFXRmFc_400x400.png"
+        alt="mozilla logo that links to the mozilla homepage">
+    </a>
+    <a href="https://www.mozilla.org/en-US/">
+      <img src="mozilla-image.png" alt="mozilla logo that links to the mozilla homepage">
+    </a>
+
+    <p>We use <abbr title="Hypertext Markup Language">HTML</abbr> to structure our web documents.</p>
+
+    <p>I think <abbr title="Reverend">Rev.</abbr> Green did it in the kitchen with the chainsaw.</p>
+
+    <!-- Standard simple date -->
+    <time datetime="2016-01-20">20 January 2016</time>
+    <!-- Just year and month -->
+    <time datetime="2016-01">January 2016</time>
+    <!-- Just month and day -->
+    <time datetime="01-20">20 January</time>
+    <!-- Just time, hours and minutes -->
+    <time datetime="19:30">19:30</time>
+    <!-- You can do seconds and milliseconds too! -->
+    <time datetime="19:30:01.856">19:30:01.856</time>
+    <!-- Date and time -->
+    <time datetime="2016-01-20T19:30">7.30pm, 20 January 2016</time>
+    <!-- Date and time with timezone offset-->
+    <time datetime="2016-01-20T19:30+01:00">7.30pm, 20 January 2016 is 8.30pm in France</time>
+    <!-- Calling out a specific week number-->
+    <time datetime="2016-W04">The fourth week of 2016</time>
+
+    <table border="1">
+      <caption>
+        Dinosaurs in the Jurassic period
+      </caption>
+      <thead>
+        <tr>
+          <th scope="col">Purchase</th>
+          <th scope="col">Location</th>
+          <th scope="col">Date</th>
+          <th scope="col">Evaluation</th>
+          <th scope="col">Cost (€)</th>
+        </tr>
+      </thead>
+
+      <tr>
+        <th scope="col">Haircut</th>
+        <td>Hairdresser</td>
+        <td>12/09</td>
+        <td>Great idea</td>
+        <td>30</td>
+      </tr>
+
+      <tr>
+        <td>Hi, I'm your first cell.</td>
+        <td>I'm your second cell.</td>
+        <td>I'm your third cell.</td>
+        <td>I'm your fourth cell.</td>
+      </tr>
+      <tr>
+        <td>Hi, I'm your first cell.</td>
+        <td>I'm your second cell.</td>
+        <td>I'm your third cell.</td>
+        <td>I'm your fourth cell.</td>
+      </tr>
+    </table>
+
+    <table border="1">
+      <thead>
+        <tr>
+          <th id="purchase">Purchase</th>
+          <th id="location">Location</th>
+          <th id="date">Date</th>
+          <th id="evaluation">Evaluation</th>
+          <th id="cost">Cost (€)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th id="haircut">Haircut</th>
+          <td headers="location haircut">Hairdresser</td>
+          <td headers="date haircut">12/09</td>
+          <td headers="evaluation haircut">Great idea</td>
+          <td headers="cost haircut">30</td>
+        </tr>
+
+        …
+      </tbody>
+
+    </table>
+
+
+    <script src="./scripts/main.js"></script>
+
+  </body>
+
+</html>

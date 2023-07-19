@@ -1,0 +1,52 @@
+@import 'style2.css';
+
+/* 標題 */
+h1+p {
+  font-size: 20px;
+  color: lightcoral;
+}
+
+/* 連結 */
+
+a:link {
+  color: pink;
+}
+
+a:visited {
+  color: rgb(32, 30, 133);
+}
+
+a:hover {
+  text-decoration: line-through;
+}
+
+/* 列表 */
+li.special {
+  color: orange;
+  font-weight: bold;
+  font-size: 50px;
+}
+
+li em {
+  color: rebeccapurple;
+}
+
+/* 這個規則會對任何在 <body> 內，跟在 <h1> 後 <p> 裡的 special 分類元素設定樣式！且只會套用到行內樣式裡 */
+body h1+p .special {
+  color: rgb(61, 61, 18);
+  font-size: 50px;
+  background-color: black;
+  padding: 5px;
+  border: 1px solid #000;
+}
+
+.box1 {
+  width: 50%;
+  height: 50vh;
+  background-color: rgb(226, 194, 194);
+  background-image: url('https://i.pinimg.com/564x/61/6b/97/616b9771b3f2a3dbc21f76742f102f41.jpg');
+  background-position: 100px 60px;
+  background-repeat: repeat-x;
+  /* background-attachment: fixed; */
+
+}

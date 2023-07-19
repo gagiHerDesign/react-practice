@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>promise</title>
+  </head>
+
+  <body>
+    <script>
+      // 1.---------------------------------------------------------
+      // const promise = new Promise((resolve, reject) => {
+      //   console.log('start')
+      //   // throw '牙敗'
+      // })
+      // promise.then(
+      //   // resolve
+      //   (resolve) => {
+      //     console.log(resolve + 'yeah')
+      //   },
+      //   // reject
+      //   (reject) => {
+      //     console.log(reject + 'NG')
+      //   }
+      // )
+      // console.log(promise)
+
+      // 2.---------------------------------------------------------
+      // const promise2 = new Promise((resolve, reject) => {
+      //   resolve('我很棒')
+      // })
+
+      // promise2.then(
+      //   (resolve) => {
+      //     console.log(resolve + '成功')
+      //   },
+      //   (reject) => {
+      //     console.log(reject + 'NG')
+      //   }
+      // )
+
+      // console.log(promise2)
+
+      // 3.---------------------------------------------------------
+      // let myPromise3 = new Promise((resolve, reject) => {
+      //   resolve('我是resolve喔')
+      // })
+
+      // myPromise3.then((result) => console.log('who are U?', result))
+
+      // console.log(myPromise3)
+
+
+      // 4.---------------------------------------------------------
+      // function funA() {
+      //   return new Promise(function (resolve, reject) {
+      //     console.log('你在哪')
+      //     setTimeout(() => {
+      //       resolve('我在家阿')
+      //     }, 1000)
+      //   })
+      // }
+      // var x = '456'
+      // funA().then(function (x) {
+      //   console.log(x)
+      // })()
+
+      // console.log('這裡是外面');
+      // console.log('這裡是外面');
+      // console.log('這裡是外面');
+      // console.log('這裡是外面');
+
+
+      // 5.---------------------------------------------------------
+      // let person = new Promise((resolve, reject) => {
+      //   setTimeout(() => {
+      //     resolve('要不要跟我在一起啊nini');
+      //   }, 3 * 1000);
+      // });
+
+      // person
+      //   .then((result) => {
+      //     console.log(result);
+      //     return 'niki';
+      //   })
+      //   .then((result) => {
+      //     console.log(`${ result }要不要跟我在一起啊`);
+      //     return 'kiki';
+      //   })
+      //   .then((result) => {
+      //     console.log(`${ result }要不要跟我在一起啊`);
+      //     return 'mimi';
+      //   });
+
+      //要不要跟我在一起啊nini
+      //niki要不要跟我在一起啊
+      //kiki要不要跟我在一起啊
+
+      // 6.---------------------------------------------------------
+      // function funA() {
+      //   return new Promise(function (resolve, reject) {
+      //     console.log('nini:你在哪')
+      //     setTimeout(() => {
+      //       resolve('我在家阿')
+      //     }, 1000)
+      //   })
+      // }
+
+      // function funB() {
+      //   return new Promise(function (resolve, reject) {
+      //     console.log('niki:你在哪')
+      //     setTimeout(() => {
+      //       resolve('我在公司阿')
+      //     }, 1000)
+      //   })
+      // }
+
+      // function funC() {
+      //   return new Promise(function (resolve, reject) {
+      //     console.log('kiki:你在哪')
+      //     setTimeout(() => {
+      //       resolve('我在學校阿')
+      //     }, 1000)
+      //     return '我其實在河濱'
+      //   })
+      // }
+
+      // funA()
+      //   .then(function (x) {
+      //     console.log(x)
+      //     return funB()
+      //   })
+      //   .then(function (y) {
+      //     console.log(y)
+      //     return funC()
+      //   })
+      //   .then(function (z) {
+      //     console.log(z)
+      //   })
+
+      // console.log('***********這裡是101***********')
+
+      // 7.---------------------------------------------------------
+      // function promiseFn(num, time = 500) {
+      //   return new Promise((resolve, reject) => {
+      //     setTimeout(() => {
+      //       if (num) {
+      //         resolve(`成功 ${ num }`)
+      //       } else {
+      //         reject('失敗')
+      //       }
+      //     }, time)
+      //   })
+      // }
+
+      // // promiseFn(1, 2000)
+      // //   .then(res => {
+      // //     console.log(res)
+      // //   })
+
+      // Promise.all([
+      //   promiseFn(1, 500),
+      //   promiseFn(0, 1000),
+      //   promiseFn(3, 2000)
+      // ])
+      //   .then(res => {
+      //     console.log(res)
+      //   })
+
+      // 8.---------------------------------------------------------
+      // function marry(name) {
+      //   let randomNumber = Math.random() * 3
+      //   let random = Math.floor(randomNumber)
+      //   return new Promise((resolve, reject) => {
+      //     if (random === 1) {
+      //       reject(`${ name }: nope`)
+      //     } else {
+      //       resolve(`${ name }: yes`)
+      //     }
+
+      //   })
+      // }
+
+      // marry('nini')
+      //   .then((fail) => {
+      //     console.log(`求婚結果1${ fail }`);
+      //     return marry('niki')
+      //   })
+      //   .then((fail) => {
+      //     console.log(`求婚結果2${ fail }`);
+      //     return marry('kiki')
+      //   })
+      //   .then((fail) => {
+      //     console.log(`求婚結果3${ fail }`);
+      //     return marry('nobody')
+      //   })
+      //   .catch((success) => {
+      //     console.log(`求婚成功${ success }`);
+      //     return ('結婚')
+      //   })
+
+
+      // 9-0.---------------------------------------------------------
+      // const a = new Promise((resolve, reject) => {
+      //   resolve('success')
+      // })
+
+      // console.log(a)
+
+      // a.then((res) => {
+      //   console.log(res)
+      // }).catch((res) => {
+      //   console.log(res)
+      // })
+
+
+
+      // 9.---------------------------------------------------------
+      // function promiseFn(num) {
+      //   return new Promise((resolve, reject) => {
+      //     setTimeout(() => {
+      //       if (num) {
+      //         resolve(`成功 ${ num }`)
+      //       } else {
+      //         reject('失敗')
+      //       }
+      //     }, 500)
+      //   })
+      // }
+
+      // promiseFn(0)
+      //   .then(res => {
+      //     console.log(res)
+      //   })
+      //   .catch(err => {
+      //     console.log(err)
+      //   })
+
+      // console.log('code end')
+
+      // 10.---------------------------------------------------------
+      function promiseFn(num) {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            if (num) {
+              resolve(`成功 ${ num }`)
+            } else {
+              reject('失敗')
+            }
+          }, 500)
+        })
+      }
+
+      // promise chain1
+
+      promiseFn(1)
+        .then(res => {
+          console.log(res)
+          return promiseFn(2)
+        })
+        .then(res => {
+          console.log(res)
+          return promiseFn(3)
+        })
+        .then(res => {
+          console.log(res)
+        })
+        .catch(err => {
+          console.log('catch', err)
+        })
+
+
+
+      // promise chain2
+
+      promiseFn(0)
+        // 接收到了一個0，所以會進入到reject
+        .then((res) => {
+          console.log('success', res)
+          return promiseFn(3)
+        }, (rej) => {
+          console.log('fail', rej);
+          return promiseFn(4)
+        })
+
+        // rej return出來的值是4，所以會進入到res
+        .then((res) => {
+          console.log('success', res)
+        }, (rej) => {
+          console.log('fail', rej);
+        })
+
+    </script>
+
+  </body>
+
+</html>

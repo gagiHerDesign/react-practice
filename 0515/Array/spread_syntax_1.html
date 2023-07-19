@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>spread_syntax_1</title>
+  </head>
+
+  <body>
+    <script>
+      function sum(x, y, z) {
+        return x + y + z;
+      }
+
+      const numbers = [1, 2, 3];
+      const numbers2 = [{ id: 0, name: 'JOY' }, { id: 1, name: "GAGI" }];
+      const arr = [...numbers2];
+
+      // 展開運算子
+      console.log(...numbers);
+      console.log(...numbers2);
+
+      console.log(arr);
+
+      console.log(sum(...numbers));
+      // Expected output: 6
+
+      // ES5 的寫法
+      console.log(sum.apply(null, numbers));
+      // Expected output: 6
+
+
+    </script>
+  </body>
+
+</html>

@@ -1,0 +1,4 @@
+npx create-next-app --example with-docker-compose next
+
+看port號的地方:
+http://35.236.172.171/api/info

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0419CSS</title>
+    <link rel="stylesheet" href="./style/style.css">
+  </head>
+
+  <body>
+    <h1>I am title</h1>
+    <p>
+      我是用h1+p <br>
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam illum laudantium odio voluptates aspernatur!
+      Maiores impedit eaque doloribus cum aut a quo, culpa adipisci ad? Exercitationem natus nostrum ipsum commodi.
+      <a class="special">456</a>
+    </p>
+
+    <!-- 連結 -->
+    <a href="https://github.com/">github</a>
+    <ul>
+      <li class="special">
+        <pre>這裡是用li .special</pre>
+      </li>
+      <li class="special">456</li>
+      <li class="special">456</li>
+      <li class="special">456</li>
+      <li class="special"><em>這裡是用li em</em></li>
+    </ul>
+
+    <div class="box1"></div>
+
+    <h3 class="title">console裡面有一些字串型態、運算子、作用域</h3>
+
+    <script>
+      // 如果是字串型態，(+)=>字串會相加
+      // 但(-、/、*)則會運算數字
+      var x = "5", y = "3", z = "1", w = null;
+      a = x + y + z;
+      b = x - y - z;
+      c = w * 555;
+      console.log("x+y+z=", a)
+      console.log("x-y-z=", b)
+      console.log("w*55", c)
+
+      // 作用域
+      var x = 2
+      function cal() {
+        var x = 5, y = 1;
+        console.log(x + y)
+      }
+      cal() //6
+      console.log(x) //2
+
+      var y = 3
+      function calculate() {
+        x = 1, y = 2
+        console.log(x + y)
+      }
+      calculate() //6
+      console.log(y) //2
+
+      // 資料型別
+      let j = 3, k = "5";
+      let h = j + k;
+      console.log(j + k)
+      console.log(typeof h)
+
+      e = Number(new Date())
+      console.log(e)
+
+
+    </script>
+  </body>
+
+</html>

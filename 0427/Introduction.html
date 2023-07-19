@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction</title>
+    <style>
+      .wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 100px 100px;
+        gap: 10px;
+      }
+
+      .backgroundColor {
+        background-color: bisque;
+      }
+
+      .box1 {
+        /* grid-column: startLine/endLine; */
+        grid-column: 2 / 3;
+        grid-row: 2;
+      }
+
+      .box2 {
+        grid-column: 1;
+        grid-row: 1 / 2;
+      }
+
+      .box3 {
+        grid-row: 2;
+        grid-column: 3;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div class="backgroundColor box1">One</div>
+      <div class="backgroundColor box2">Two</div>
+      <div class="backgroundColor box3">Three</div>
+      <!-- <div class="backgroundColor box4">Four</div>
+      <div class="backgroundColor box5">Five</div>
+      <div class="backgroundColor box6">Six</div>
+      <div class="backgroundColor box7">78</div>
+      <div class="backgroundColor box8">78</div>
+      <div class="backgroundColor box9">78</div> -->
+    </div>
+
+
+  </body>
+
+</html>

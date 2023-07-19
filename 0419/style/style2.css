@@ -1,0 +1,8 @@
+.title {
+  transition: 1s;
+}
+
+.title:hover {
+  transition: 1s;
+  font-size: 150%;
+}

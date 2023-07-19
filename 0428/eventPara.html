@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      .btn {
+        width: 50%;
+        height: 200px;
+        position: relative;
+        background-color: rgb(84, 105, 199);
+      }
+
+      .small {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        background-color: bisque;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="btn">
+      00000000
+      <div class="small">
+        1111111
+      </div>
+
+    </div>
+
+    <script>
+
+      var el = document.querySelector('.btn');
+      var small = document.querySelector('.small');
+
+      el.addEventListener('click', function (e) {
+        alert('Hello');
+        console.log('btn')
+      }, true)
+
+      small.addEventListener('click', function (e) {
+        alert('bye');
+        console.log('small')
+      }, true)
+
+    </script>
+  </body>
+
+</html>

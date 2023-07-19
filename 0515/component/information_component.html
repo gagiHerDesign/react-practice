@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="UTF-8" />
+    <title>information_component</title>
+    <script src="https://unpkg.com/react/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom/umd/react-dom.development.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.21.8/babel.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+
+  </head>
+
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+      const PrimaryButton = ({ className, children }) => {
+        return (
+          <button type="button" className={`btn ${ className }`}>{children}</button>
+        )
+      }
+
+      // 定義卡片元件
+      const Card = ({
+        title, price, content, callToAction }) => {
+        return (
+          <div className="card mb-4">
+            <div className="card-header">
+              <h4 className="my-0">{title}</h4>
+            </div>
+            <div className="card-body">
+              <h5 className="card-title">{typeof price === 'number' ? `$${ price }` : price}</h5>
+              <p className="card-text">{content}</p>
+              {
+                title === '企業版' ?
+                  <PrimaryButton className=" btn-primary" >
+                    <i className="bi bi-gem"></i>{callToAction}
+                  </PrimaryButton> :
+                  <PrimaryButton className=" btn-outline-primary">{callToAction}</PrimaryButton>
+              }
+            </div>
+          </div>
+        )
+      }
+
+
+      // React component
+      const App = () => {
+        const products = [
+          {
+            id: 1,
+            title: '基本版',
+            price: 100,
+            content: '基本版內容',
+            callToAction: '立即購買'
+          },
+          {
+            id: 2,
+            title: '企業版',
+            price: 1000,
+            content: '付費版內容',
+            callToAction: '來買'
+          }
+        ]
+
+        return (
+          <div>
+            <Header />
+            <div className="row mx-5">
+              <div className="col-3">
+                <Sidebar />
+              </div>
+              <div className="col-8">
+                <h2>送到你家</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis fugiat laboriosam quas provident accusamus soluta aspernatur adipisci, eaque eos culpa nam distinctio, alias sit expedita architecto qui laborum suscipit omnis.</p>
+                {
+                  products.map((product) => {
+                    return (
+                      <Card
+                        key={product.id}
+                        title={product.title}
+                        price={product.price}
+                        content={product.content}
+                        callToAction={product.callToAction}
+                      />
+                    )
+
+                  })
+                }
+              </div>
+            </div>
+          </div>
+
+        );
+      }
+
+      // Render the component to the DOM
+      ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+
+      const Header = ({ imgUrl }) => {
+        return (
+          <div className="jumbotron jumbotron-fluid">
+            <div className="container">
+              <h1 className="display-4">Hello, world!</h1>
+              <p className="lead">This is a fluid jumbotron</p>
+            </div>
+          </div>
+        )
+      }
+
+      const Sidebar = ({ list = ['選項一', '選項二', '選項三'] }) => {
+        return (
+          <ul className="list-group">
+            {list.map((item, index) => {
+              return (
+                <li className="list-group-item" key={index}>{item}</li>
+              )
+            })}
+          </ul>
+        )
+      }
+
+    </script>
+  </body>
+
+</html>

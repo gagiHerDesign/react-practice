@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      // 1. 
+      // const doOrder = () => {
+      //   console.log('查詢錢包預計 3 秒...');
+      //   setTimeout(() => {
+      //     console.log('查詢完成，傳送交易資料到主機預計 2 秒...');
+      //     setTimeout(() => {
+      //       console.log('傳送完成，開始配送預計 10 秒...');
+      //       setTimeout(() => {
+      //         console.log('包裹已送達!');
+      //       }, 10000);
+      //     }, 2000);
+      //   }, 3000);
+      // };
+
+      // doOrder();
+      // console.log('訂單送出去了，可以去澆花、追劇囉!');
+
+
+      // 2. 使用promise 
+      // const doQueryWallet = () => {
+      //   // 用 setTimeout 模擬從資料庫 IO 
+      //   return new Promise((resolve, reject) => {
+      //     setTimeout(() => {
+      //       // 一秒後回傳資料
+      //       resolve({ balance: 100 });
+      //     }, 1000);
+      //   })
+      // };
+
+      // const doOrder = () => {
+      //   // 用 setTimeout 模擬資料庫 IO
+      //   return new Promise((resolve, reject) => {
+      //     setTimeout(() => {
+      //       // 一秒後回傳資料
+      //       resolve({ status: 'ok' });
+      //     }, 1000);
+      //   })
+      // };
+
+      // doQueryWallet()
+      //   .then(function (result) {
+      //     if (result.balance > 0) {
+      //       return doOrder();
+      //     } else {
+      //       console.log('餘額不足');
+      //       // 往下回傳 pending 的 Promise (類似中斷 Promise)
+      //       return new Promise((resolve, reject) => { })
+      //     }
+      //   })
+      //   .then(function (result) {
+      //     if (result.status === 'ok') {
+      //       console.log('下單成功');
+      //     } else {
+      //       console.log('下單失敗');
+      //     }
+      //   })
+      //   .catch(function (err) {
+      //     console.error(err);
+      //   });
+
+      // 3. 使用async await 和try catch 改寫上面的程式碼
+      // const doQueryWallet = () => {
+      //   // 用 setTimeout 模擬從資料庫 IO
+      //   return new Promise((resolve, reject) => {
+      //     setTimeout(() => {
+      //       // 一秒後回傳資料
+      //       resolve({ balance: 100 });
+      //     }, 1000);
+      //   })
+      // };
+
+      // const doOrder = () => {
+      //   // 用 setTimeout 模擬資料庫 IO
+      //   return new Promise((resolve, reject) => {
+      //     setTimeout(() => {
+      //       // 一秒後回傳資料
+      //       resolve({ status: 'ok' });
+      //     }, 1000);
+      //   })
+      // };
+
+      // (async function () {
+      //   try {
+      //     const wallet = await doQueryWallet();
+      //     if (wallet.balance > 0) {
+      //       const order = await doOrder();
+      //       if (order.status === 'ok') {
+      //         console.log('下單成功');
+      //       } else {
+      //         console.log('下單失敗');
+      //       }
+      //     } else {
+      //       console.log('餘額不足');
+      //     }
+      //   } catch (err) {
+      //     console.error(err);
+      //   }
+      // })();
+
+
+
+      const doQueryWallet = () => {
+        // 用 setTimeout 模擬從資料庫 IO 
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            // 一秒後回傳資料
+            resolve({ balance: 100 });
+          }, 1000);
+        });
+      };
+
+      const doOrder = () => {
+        // 用 setTimeout 模擬資料庫 IO
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            // 一秒後回傳資料
+            resolve({ status: 'ok' });
+          }, 1000);
+        });
+      };
+
+      const processOrder = async () => {
+        try {
+          const walletResult = await doQueryWallet();
+          if (walletResult.balance > 0) {
+            const orderResult = await doOrder();
+            if (orderResult.status === 'ok') {
+              console.log('下單成功');
+            } else {
+              console.log('下單失敗');
+            }
+          } else {
+            console.log('餘額不足');
+          }
+        } catch (error) {
+          console.error(error);
+        }
+      };
+
+      processOrder();
+      console.log('processOrder, 這是甚麼?')
+      console.dir(processOrder())
+
+      // let apple = 1;
+      // console.log('apple')
+      // console.log(apple.__proto__)
+
+
+      // // 一個簡單的加法例子
+      // const ab = (a, b) => {
+      //   return new Promise((resolve, reject) => {
+      //     setTimeout(() => {
+      //       reject('1')
+      //       console.log(a + b)
+      //     }, 2000)
+      //   })
+
+      // }
+
+      // async function add(a, b) {
+      //   try {
+      //     const c = await ab(1, 2)
+      //     await document.write(c)
+      //     console.log("hello")
+      //   } catch (err) {
+      //     console.log(err)
+      //     console.log('fail')
+      //   }
+      // }
+      // add(1, 2)
+
+
+      // const promiseA = new Promise((resolve, reject) => {
+      //   setTimeout(() => {
+      //     resolve('A');
+      //   }, 1000);
+      // });
+
+      // console.log(promiseA);
+
+
+
+
+    </script>
+  </body>
+
+</html>

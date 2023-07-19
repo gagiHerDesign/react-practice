@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>why_constructor</title>
+  </head>
+
+  <body>
+    <script>
+      // define the Person Class  
+      function Person(name) {
+        this.name = name;
+      }
+
+      Person.prototype.copy = function () {
+        // return new Person(this.name); // just as bad
+        return new this.constructor(this.name);
+      };
+
+      // define the Student class  
+      function Student(name) {
+        Person.call(this, name);
+      }
+
+      // inherit Person  
+      Student.prototype = Object.create(Person.prototype);
+
+      var student1 = new Student("trinth");
+      console.log(student1.copy())
+      console.log(student1.copy() instanceof Student); // => false
+
+      // correct the constructor pointer because it points to Person  
+      Student.prototype.constructor = Student;
+
+      var student1 = new Student("trinth");
+      console.log(student1.copy())
+      console.log(student1.copy() instanceof Student); // => true
+    </script>
+  </body>
+
+</html>

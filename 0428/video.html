@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      body {
+        background-color: #333;
+        color: #eee;
+        font-family: sans-serif;
+      }
+
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <button>Display video</button>
+
+    <div class="hidden">
+      <video>
+        <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm" type="video/webm" />
+        <p>
+          Your browser doesn't support HTML video. Here is a
+          <a href="rabbit320.mp4">link to the video</a> instead.
+        </p>
+      </video>
+    </div>
+    <p>456</p>
+
+    <script>
+      // declare variables
+
+      const btn = document.querySelector("button");
+      const box = document.querySelector("div");
+      const video = document.querySelector("video");
+      // add event listeners
+      const p = document.querySelector("p");
+      p.addEventListener("click", () => alert("Hello World"));
+
+
+      btn.addEventListener("click", () => box.classList.remove("hidden"));
+      video.addEventListener("click", () => video.play());
+      box.addEventListener("click", () => box.classList.add("hidden"));
+    </script>
+  </body>
+
+</html>

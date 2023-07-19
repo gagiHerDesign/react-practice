@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      class Calculator {
+        subtotal = 0
+        total = 0
+        constructor(items) {
+          this.items = items
+          this.orderName = this.items[0].name
+        }
+
+        addNoodles() {
+          this.items.push({
+            name: '加麵',
+            price: 20
+          })
+        }
+
+        sum() {
+          console.log(this.subtotal)
+        }
+      }
+
+      const order = new Calculator([
+        {
+          name: '牛肉麵',
+          price: 100
+        },
+        {
+          name: '燙青菜',
+          price: 20
+        }
+      ])
+
+      order.addNoodles()
+      console.log(order)
+    </script>
+  </body>
+
+</html>

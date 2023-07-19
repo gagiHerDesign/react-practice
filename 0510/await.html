@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+
+      // 如果await後面的不是一個promise對象，那麼就會被轉換成一個立即resolve的promise
+
+      async function f2() {
+        var y = await 20;
+        console.log(y); // 20
+      }
+      f2();
+
+
+    </script>
+  </body>
+
+</html>

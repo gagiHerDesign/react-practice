@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON</title>
+  </head>
+
+  <body>
+    <script>
+      var breakfast = {
+        name: '麥味登',
+        members: {
+          milk: '牛奶',
+          bread: '麵包',
+          egg: '蛋'
+        },
+      }
+
+      var json = JSON.stringify(breakfast)
+      console.log("stringify的" + json)
+      // {"name":"麥味登","members":{"milk":"牛奶","bread":"麵包","egg":"蛋"}}
+
+
+      // 深層複製
+      let breakfast2 = JSON.parse(JSON.stringify(breakfast))
+      breakfast2.name = "永和豆漿"
+      breakfast2.members.milk = "豆漿"
+      console.log(breakfast, breakfast2)
+      console.log("深層複製")
+      console.log(breakfast2)
+
+
+      function getData() {
+        console.log(this.response)
+        var data = JSON.parse(this.response)
+        console.log(data)
+      }
+
+      var oReq = new XMLHttpRequest();
+      oReq.addEventListener("load", getData);
+      oReq.open("GET", "b.json")
+      oReq.send()
+    </script>
+  </body>
+
+</html>
